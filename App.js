@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   Button,
+  Image,
   View
 } from 'react-native';
 
@@ -11,7 +12,6 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = { escolhaUsuario: '', escolhaComputador: '', resultado: '' };
   }
 
@@ -84,12 +84,27 @@ export default class App extends Component {
   render() {
     return (
       <View>
+
+        <Topo></Topo>
+        <View></View>
+        <View></View>
+
         <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
         <Text>Escolha do usuário: {this.state.escolhaUsuario} </Text>
         <Text>Resultado: {this.state.resultado}</Text>
         <Button title="pedra" onPress={() => { this.jokenpo('pedra') }} />
         <Button title="papel" onPress={() => { this.jokenpo('papel') }} />
         <Button title="tesoura" onPress={() => { this.jokenpo('tesoura') }} />
+      </View>
+    );
+  }
+}
+
+export class Topo extends Component {
+  render() {
+    return (
+      <View>
+        <Image source={require('./imgs/jokenpo.png')} />
       </View>
     );
   }
